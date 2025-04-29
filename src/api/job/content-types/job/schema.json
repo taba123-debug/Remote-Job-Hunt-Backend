@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "jobs",
+  "info": {
+    "singularName": "job",
+    "pluralName": "jobs",
+    "displayName": "Job",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "JobTitle": {
+      "type": "text"
+    },
+    "Salary": {
+      "type": "biginteger"
+    },
+    "location": {
+      "type": "text"
+    },
+    "Type": {
+      "type": "string"
+    },
+    "requirements": {
+      "type": "blocks"
+    },
+    "ID_data": {
+      "type": "integer"
+    },
+    "description": {
+      "type": "string"
+    },
+    "company": {
+      "type": "string"
+    }
+  }
+}
