@@ -1,0 +1,20 @@
+{
+  "kind": "collectionType",
+  "collectionName": "faq_questions",
+  "info": {
+    "singularName": "faq-question",
+    "pluralName": "faq-questions",
+    "displayName": "FAQ-Question"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Question": {
+      "type": "text"
+    },
+    "Answer": {
+      "type": "text"
+    }
+  }
+}

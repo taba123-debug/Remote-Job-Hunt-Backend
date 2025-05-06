@@ -1,0 +1,20 @@
+{
+  "kind": "collectionType",
+  "collectionName": "service_informations",
+  "info": {
+    "singularName": "service-information",
+    "pluralName": "service-informations",
+    "displayName": "ServiceInformation"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Main": {
+      "type": "text"
+    },
+    "Content": {
+      "type": "text"
+    }
+  }
+}

@@ -369,6 +369,93 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiAboutAbout extends Struct.CollectionTypeSchema {
+  collectionName: 'abouts';
+  info: {
+    description: '';
+    displayName: 'About';
+    pluralName: 'abouts';
+    singularName: 'about';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    AboutDescription: Schema.Attribute.Text;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    HeroAbout: Schema.Attribute.Text;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::about.about'> &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiFaqQuestionFaqQuestion extends Struct.CollectionTypeSchema {
+  collectionName: 'faq_questions';
+  info: {
+    displayName: 'FAQ-Question';
+    pluralName: 'faq-questions';
+    singularName: 'faq-question';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Answer: Schema.Attribute.Text;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::faq-question.faq-question'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    Question: Schema.Attribute.Text;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiFeedbacksInfoFeedbacksInfo
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'feedbacks_infos';
+  info: {
+    displayName: 'feedbacks-info';
+    pluralName: 'feedbacks-infos';
+    singularName: 'feedbacks-info';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    email: Schema.Attribute.Email;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::feedbacks-info.feedbacks-info'
+    > &
+      Schema.Attribute.Private;
+    message: Schema.Attribute.Text;
+    name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiJobJob extends Struct.CollectionTypeSchema {
   collectionName: 'jobs';
   info: {
@@ -385,6 +472,7 @@ export interface ApiJobJob extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    date: Schema.Attribute.Date;
     description: Schema.Attribute.String;
     ID_data: Schema.Attribute.Integer;
     JobTitle: Schema.Attribute.Text;
@@ -396,6 +484,70 @@ export interface ApiJobJob extends Struct.CollectionTypeSchema {
     requirements: Schema.Attribute.Blocks;
     Salary: Schema.Attribute.BigInteger;
     Type: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiServiceInformationServiceInformation
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'service_informations';
+  info: {
+    displayName: 'ServiceInformation';
+    pluralName: 'service-informations';
+    singularName: 'service-information';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Content: Schema.Attribute.Text;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::service-information.service-information'
+    > &
+      Schema.Attribute.Private;
+    Main: Schema.Attribute.Text;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiUserDataInfoUserDataInfo
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'user_data_infos';
+  info: {
+    displayName: 'UserDataInfo';
+    pluralName: 'user-data-infos';
+    singularName: 'user-data-info';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    email: Schema.Attribute.Email;
+    experience: Schema.Attribute.Integer;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::user-data-info.user-data-info'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String;
+    password: Schema.Attribute.Password;
+    publishedAt: Schema.Attribute.DateTime;
+    rsesumeHeadline: Schema.Attribute.Text;
+    skills: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -911,7 +1063,12 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::about.about': ApiAboutAbout;
+      'api::faq-question.faq-question': ApiFaqQuestionFaqQuestion;
+      'api::feedbacks-info.feedbacks-info': ApiFeedbacksInfoFeedbacksInfo;
       'api::job.job': ApiJobJob;
+      'api::service-information.service-information': ApiServiceInformationServiceInformation;
+      'api::user-data-info.user-data-info': ApiUserDataInfoUserDataInfo;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

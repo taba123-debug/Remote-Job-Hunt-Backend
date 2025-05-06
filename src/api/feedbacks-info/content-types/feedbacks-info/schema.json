@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "feedbacks_infos",
+  "info": {
+    "singularName": "feedbacks-info",
+    "pluralName": "feedbacks-infos",
+    "displayName": "feedbacks-info"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email"
+    },
+    "message": {
+      "type": "text"
+    }
+  }
+}
