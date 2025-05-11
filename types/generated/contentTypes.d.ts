@@ -396,6 +396,44 @@ export interface ApiAboutAbout extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiApplicationsCollectionApplicationsCollection
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'applications_collections';
+  info: {
+    displayName: 'applicationsCollection';
+    pluralName: 'applications-collections';
+    singularName: 'applications-collection';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    coverletter: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    email: Schema.Attribute.Email;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::applications-collection.applications-collection'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    resume: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiFaqQuestionFaqQuestion extends Struct.CollectionTypeSchema {
   collectionName: 'faq_questions';
   info: {
@@ -548,6 +586,37 @@ export interface ApiUserDataInfoUserDataInfo
     publishedAt: Schema.Attribute.DateTime;
     rsesumeHeadline: Schema.Attribute.Text;
     skills: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiUserProfileInfoUserProfileInfo
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'user_profile_infos';
+  info: {
+    description: '';
+    displayName: 'userProfileInfo';
+    pluralName: 'user-profile-infos';
+    singularName: 'user-profile-info';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::user-profile-info.user-profile-info'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    resumeheadline: Schema.Attribute.Text;
+    skills: Schema.Attribute.Text;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1064,11 +1133,13 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::about.about': ApiAboutAbout;
+      'api::applications-collection.applications-collection': ApiApplicationsCollectionApplicationsCollection;
       'api::faq-question.faq-question': ApiFaqQuestionFaqQuestion;
       'api::feedbacks-info.feedbacks-info': ApiFeedbacksInfoFeedbacksInfo;
       'api::job.job': ApiJobJob;
       'api::service-information.service-information': ApiServiceInformationServiceInformation;
       'api::user-data-info.user-data-info': ApiUserDataInfoUserDataInfo;
+      'api::user-profile-info.user-profile-info': ApiUserProfileInfoUserProfileInfo;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

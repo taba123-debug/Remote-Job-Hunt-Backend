@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "applications_collections",
+  "info": {
+    "singularName": "applications-collection",
+    "pluralName": "applications-collections",
+    "displayName": "applicationsCollection"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email"
+    },
+    "resume": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "coverletter": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    }
+  }
+}
